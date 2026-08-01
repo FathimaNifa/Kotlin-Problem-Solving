@@ -30,3 +30,22 @@ fun findSquare(number: Int) {
     val square = number * number
     println("Square : $square")
 }
+
+
+//Create the following functions:
+//
+//- `isEven()`
+//- `isPositive()`
+//- `findSquare()`
+//
+//Read one number and display all the results.
+//
+//Example
+//
+//```
+//Enter Number: 10
+//
+//Even : Yes
+//Positive : Yes
+//Square : 100
+//```

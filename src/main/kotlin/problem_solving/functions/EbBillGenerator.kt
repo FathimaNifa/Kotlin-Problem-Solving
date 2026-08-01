@@ -20,3 +20,24 @@ fun billingRules(units :Int){
 
     println("Amount : $amount")
 }
+
+
+//Billing Rules:
+//
+//- First 100 units → ₹2/unit
+//- Next 100 units → ₹3/unit
+//- Above 200 units → ₹5/unit
+//
+//Display:
+//
+//- Units Consumed
+//- Amount Payable
+//
+//Example
+//
+//```
+//Enter Units: 250
+//
+//Units : 250
+//Amount : ₹750
+//```
