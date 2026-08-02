@@ -1,29 +1,31 @@
 package org.example.problem_solving.functions
 
-var first100Units = 0
-var second100Units = 0
-var above200Units = 0
-var totalAmount = 0
-var totalUnits = 0
+
+
+
 fun main() {
 
     print("Enter Units : ")
-    totalUnits = readln().toInt()
-    totalAmount = billingRules(totalUnits)
+   val totalUnits = readln().toInt()
+   billingRules(totalUnits)
 }
 
-fun billingRules(units: Int): Int {
+fun billingRules(units: Int){
+    var first100Units = 0
+    var second100Units = 0
+    var above200Units = 0
+    var totalAmount = 0
     println("Units : $units")
     for (i in 1..units) {
         if (i <= 100) {
             first100Units = i * 2
         }
         if (i > 100 && i <= 200) {
-            var units = i - 100
+            val units = i - 100
             second100Units = units * 3
         }
         if (i > 200) {
-            var units = i - 200
+            val units = i - 200
             above200Units = units * 5
         }
         totalAmount = first100Units + second100Units + above200Units
@@ -31,7 +33,7 @@ fun billingRules(units: Int): Int {
 
     }
     println("Amount : $totalAmount")
-    return totalAmount
+
 
 }
 

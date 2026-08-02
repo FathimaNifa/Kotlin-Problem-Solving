@@ -3,12 +3,12 @@ package org.example.problem_solving.functions
 fun main() {
     print("Enter a Number : ")
     val number = readln().toInt()
-    checkeven(number)
+    checkEven(number)
     checkPositive(number)
     findSquare(number)
 }
 
-fun checkeven(number: Int) {
+fun checkEven(number: Int) {
     if (number % 2 == 0) {
         println("Even : Yes")
     } else {
