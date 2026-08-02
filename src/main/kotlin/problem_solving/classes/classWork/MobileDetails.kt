@@ -23,8 +23,4 @@ fun main(){
     mobile2.price = "₹99900"
     mobile1.displayDetails()
     mobile2.displayDetails()
-
-
-
-
 }
