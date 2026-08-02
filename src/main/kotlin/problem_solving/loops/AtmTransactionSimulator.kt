@@ -3,31 +3,11 @@ package org.example.problem_solving.loops
 fun main() {
     getAtmMenu()
 }
-fun getCheckBalance(choice: Int, balance: Int): Int {
-
-    var checkBalance = balance
-    when (choice) {
-        1 -> {
-            println("Your Current balance is : $checkBalance")
-        }
-        2 -> {
-            checkBalance= getDepositeAmt(checkBalance)
-        }
-        3 -> {
-            checkBalance= getWithdrawAmt(checkBalance)
-        }
-        else -> {
-            println("Invalid Input")
-        }
-    }
-    return checkBalance
-
-}
 
 fun getDepositeAmt(balance: Int): Int {
 
     print("Enter the Amount : ")
-    var depositeAmt = readln().toInt()
+    val depositeAmt = readln().toInt()
     val checkBalance = balance + depositeAmt
     println("Your Current balance is : $checkBalance")
     println()
@@ -38,7 +18,7 @@ fun getWithdrawAmt(balance: Int): Int {
 
     var checkBalance = balance
     print("Enter WithDraw Amount : ")
-    var withdrawAmt = readln().toInt()
+    val withdrawAmt = readln().toInt()
     if (withdrawAmt > checkBalance) {
         println("Insufficient Balance")
     } else {
@@ -66,13 +46,25 @@ fun getAtmMenu() {
         print("Enter your Choice: ")
 
         val choice = readln().toInt()
-        if (choice == 4) {
-            println("Thank you for using the ATM!")
-            break
+
+        when (choice) {
+            1 -> {
+                println("Your Current balance is : $balance")
+            }
+            2 -> {
+                balance= getDepositeAmt(balance)
+            }
+            3 -> {
+                balance= getWithdrawAmt(balance)
+            }
+            4 ->{
+                println("Thank you for using the ATM!")
+                break
+            }
+            else -> {
+                println("Invalid Input")
+            }
         }
-
-        balance = getCheckBalance(choice, balance)
-
         println()
     }
 }
