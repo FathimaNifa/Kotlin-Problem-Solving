@@ -30,26 +30,30 @@ class Books {
 
 fun main() {
 
-    val book1 = Books()
-    val book2 = Books()
-    val book3 = Books()
+    val listOfBooks = arrayOf(Books(),Books(),Books())
 
-    book1.bookName = "Kotlin Programming"
-    book1.author = "JetBrains"
-    book1.price = "₹950"
-    book1.availableCopies = 5
+    listOfBooks[0].bookName = "Kotlin Programming"
+    listOfBooks[0].author = "JetBrains"
+    listOfBooks[0].price = "₹950"
+    listOfBooks[0].availableCopies = 5
 
-    book2.bookName = "Android Development"
-    book2.author = "Google"
-    book2.price = "₹850"
-    book2.availableCopies = 4
+    listOfBooks[1].bookName = "Android Development"
+    listOfBooks[1].author = "Google"
+    listOfBooks[1].price = "₹850"
+    listOfBooks[1].availableCopies = 4
 
-    book3.bookName = "Data Structures"
-    book3.author = "Donald Knuth"
-    book3.price = "₹750"
-    book3.availableCopies = 3
+    listOfBooks[2].bookName = "Data Structures"
+    listOfBooks[2].author = "Donald Knuth"
+    listOfBooks[2].price = "₹750"
+    listOfBooks[2].availableCopies = 3
 
 
+    userInput(listOfBooks[0], listOfBooks[1], listOfBooks[2])
+
+}
+
+
+fun userInput(book1: Books, book2: Books, book3: Books){
     println("========================")
     println("  Available Books")
 
@@ -93,7 +97,4 @@ fun main() {
     println()
     println("========== Updated Details ==========")
     selectedBookObject.displayDetails()
-
 }
-
-

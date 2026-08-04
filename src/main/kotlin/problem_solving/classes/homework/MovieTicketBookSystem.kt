@@ -1,7 +1,6 @@
 package org.example.problem_solving.classes.homework
 
-import org.example.problem_solving.loops.getDepositeAmt
-import org.example.problem_solving.loops.getWithdrawAmt
+
 
 class Movie {
     var movieId = 0
@@ -19,15 +18,13 @@ class Movie {
 
     }
 
-    fun getUserInput(): Pair<Int, Int> {
-
+    fun getUserInput(): UserInput {
+        val userInput = UserInput()
         print("Enter Movie ID: ")
-        val movieID = readln().toInt()
-
+         userInput.movieID = readln().toInt()
         print("Enter the number of tickets: ")
-        val ticketCount = readln().toInt()
-
-        return Pair(movieID, ticketCount)
+       userInput.ticketCount = readln().toInt()
+        return userInput
     }
 
     fun bookTicket(ticketCount: Int) {
@@ -66,86 +63,92 @@ class Movie {
 }
     fun main() {
 
-        val movie1 = Movie()
-        val movie2 = Movie()
-        val movie3 = Movie()
+        val listOfMovies = arrayOf(Movie(),Movie(),Movie())
+        listOfMovies[0].movieId = 1
+        listOfMovies[0].movieName = "Leo"
+        listOfMovies[0].language = "Tamil"
+        listOfMovies[0].ticketPrice = 200
+        listOfMovies[0].availableSeats = 50
 
-        movie1.movieId = 1
-        movie1.movieName = "Leo"
-        movie1.language = "Tamil"
-        movie1.ticketPrice = 200
-        movie1.availableSeats = 50
+        listOfMovies[1].movieId = 2
+        listOfMovies[1].movieName = "Avengers"
+        listOfMovies[1].language = "English"
+        listOfMovies[1].ticketPrice = 300
+        listOfMovies[1].availableSeats = 35
 
-        movie2.movieId = 2
-        movie2.movieName = "Avengers"
-        movie2.language = "English"
-        movie2.ticketPrice = 300
-        movie2.availableSeats = 35
+        listOfMovies[2].movieId = 3
+        listOfMovies[2].movieName = "Vikram"
+        listOfMovies[2].language = "Tamil"
+        listOfMovies[2].ticketPrice = 250
+        listOfMovies[2].availableSeats = 40
 
-        movie3.movieId = 3
-        movie3.movieName = "Vikram"
-        movie3.language = "Tamil"
-        movie3.ticketPrice = 250
-        movie3.availableSeats = 40
-
-        while (true) {
-            println("======================================")
-            println("         Movie Ticket Booking")
-            println("======================================")
-            println()
-            println("1. View All Movies")
-            println("2. Book Ticket")
-            println("3. Cancel Ticket")
-            println("4. Exit")
-            println()
-            println("---------------------------------------")
-            println()
-            print("Enter your Choice: ")
-
-            val choice = readln().toInt()
-
-            when (choice) {
-                1 -> {
-                    println("======================================")
-                    movie1.movieDetails()
-                    println("======================================")
-                    movie2.movieDetails()
-                    println("======================================")
-                    movie3.movieDetails()
-                    println("======================================")
-                }
-
-                2 -> {
-                    val (movieID, ticketCount) = movie1.getUserInput()
-                    when (movieID) {
-                        1 -> movie1.bookTicket(ticketCount)
-                        2 -> movie2.bookTicket(ticketCount)
-                        3 -> movie3.bookTicket(ticketCount)
-                        else -> println("Invalid Movie ID")
-                    }
-                }
-
-                3 -> {
-                    val (movieID, ticketCount) = movie1.getUserInput()
-                    when (movieID) {
-                        1 -> movie1.cancelTicket(ticketCount)
-                        2 -> movie2.cancelTicket(ticketCount)
-                        3 -> movie3.cancelTicket(ticketCount)
-                        else -> println("Invalid Movie ID")
-                    }
-                }
-
-                4 -> {
-                    println("Thank you for using Movie Ticket Booking System.")
-                    println("Visit Again!")
-                    break
-                }
-
-                else -> {
-                    println("Invalid Input")
-                }
-            }
-            println()
-        }
+        menu(listOfMovies[0], listOfMovies[1], listOfMovies[2])
 
     }
+
+class UserInput{
+    var movieID = 0
+    var ticketCount = 0
+}
+
+fun menu(movie1: Movie,movie2 : Movie, movie3 : Movie ){
+    while (true) {
+        println("======================================")
+        println("         Movie Ticket Booking")
+        println("======================================")
+        println()
+        println("1. View All Movies")
+        println("2. Book Ticket")
+        println("3. Cancel Ticket")
+        println("4. Exit")
+        println()
+        println("---------------------------------------")
+        println()
+        print("Enter your Choice: ")
+
+        val choice = readln().toInt()
+
+        when (choice) {
+            1 -> {
+                println("======================================")
+                movie1.movieDetails()
+                println("======================================")
+                movie2.movieDetails()
+                println("======================================")
+                movie3.movieDetails()
+                println("======================================")
+            }
+
+            2 -> {
+                val userInput = movie1.getUserInput()
+                when (userInput.movieID) {
+                    1 -> movie1.bookTicket(userInput.ticketCount)
+                    2 -> movie2.bookTicket(userInput.ticketCount)
+                    3 -> movie3.bookTicket(userInput.ticketCount)
+                    else -> println("Invalid Movie ID")
+                }
+            }
+
+            3 -> {
+                val userInput = movie1.getUserInput()
+                when (userInput.movieID) {
+                    1 -> movie1.cancelTicket(userInput.ticketCount)
+                    2 -> movie2.cancelTicket(userInput.ticketCount)
+                    3 -> movie3.cancelTicket(userInput.ticketCount)
+                    else -> println("Invalid Movie ID")
+                }
+            }
+
+            4 -> {
+                println("Thank you for using Movie Ticket Booking System.")
+                println("Visit Again!")
+                break
+            }
+
+            else -> {
+                println("Invalid Input")
+            }
+        }
+        println()
+    }
+}
