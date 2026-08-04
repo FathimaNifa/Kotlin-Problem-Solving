@@ -30,6 +30,7 @@ class Book {
         println("     Book Borrowed Successfully!  ")
         println()
         println("========== Updated Details ==========")
+
         println("Book Name        : $bookName")
         println("Author           : $author")
         println("Price            : $price ")
