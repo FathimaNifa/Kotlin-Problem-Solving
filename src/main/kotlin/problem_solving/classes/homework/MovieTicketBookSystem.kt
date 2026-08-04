@@ -98,7 +98,7 @@ class Movie {
             println("3. Cancel Ticket")
             println("4. Exit")
             println()
-            println("--------------------------")
+            println("---------------------------------------")
             println()
             print("Enter your Choice: ")
 
