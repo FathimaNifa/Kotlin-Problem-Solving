@@ -18,12 +18,12 @@ class Product{
         println("Price          : ₹$price")
         println("Discount       : ${discount?: "Not Available"}")
         println()
-        discount?.let { calculateFinalPrice(price, it) }
+        calculateFinalPrice(price,discount?:1)
     }
 
     fun calculateFinalPrice(price : Int, discount :Int){
-        var calculateDiscount = (price* discount!! /100)
-        var finalPrice = price - calculateDiscount
+        val calculateDiscount = (price* discount/100)
+        val finalPrice = price - calculateDiscount
         println("Final Price    : ₹$finalPrice")
     }
 

@@ -25,17 +25,17 @@ class Patient {
     fun getUpdateDoctorInput(): UserInput {
         val userInput = UserInput()
         print("Enter Patient ID : ")
-        userInput.patientId = readln().toString()
+        userInput.patientId = readln()
         print("Enter Doctor Name : ")
-        userInput.updateDoctorName = readln().toString()
+        userInput.updateDoctorName = readln()
         return userInput
     }
     fun getUpdateContactInput(): UserInput{
         val userInput = UserInput()
         print("Enter Patient ID : ")
-        userInput.patientId = readln().toString()
+        userInput.patientId = readln()
         print("Enter Contact Number : ")
-        userInput.updateContactNumber = readln().toString()
+        userInput.updateContactNumber = readln()
         return userInput
     }
 
