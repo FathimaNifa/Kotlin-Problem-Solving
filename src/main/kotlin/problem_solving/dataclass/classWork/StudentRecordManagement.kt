@@ -6,12 +6,12 @@ data class Student(val id : String, val name : String,val department : String, v
 fun main(){
     val student1 = Student("S101","Kannan","CS",96)
     val student2 = Student("S102","Mohan","IT",94)
-println("========== Students ==========")
-println(student1)
+    println("========== Students ==========")
+    println(student1)
     println(student2)
 
     println("Are Student 1 and Student 2 equal?")
-   println( student1==student2)
+    println( student1==student2)
     println("========== Updated Student ==========\n")
     println("Original:")
     println(student1)
