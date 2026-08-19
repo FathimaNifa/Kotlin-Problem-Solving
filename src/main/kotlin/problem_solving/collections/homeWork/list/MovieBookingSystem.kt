@@ -2,17 +2,42 @@ package org.example.problem_solving.collections.homeWork.list
 
 import org.example.problem_solving.collections.classWork.list.*
 
-data class Movie(
-    val id: Int,
-    val name: String,
-    val price: Double,
-    val availableSeats: Int
-){
-
+data class Movie(val movieID : String,val movieName :String,val language : String, val ticketPrice : Int,val availableSeats: Int){
+    val totalAmount = ticketPrice
+    var availableSeat = availableSeats
 }
-val movie1 = mutableListOf<Product>(Product(1001,"Leo", 350.0,35))
-val movie2 = mutableListOf<Product>(Product(1002,"ABC", 250.0,15))
-val movie3 = mutableListOf<Product>(Product(1003,"Tim", 200.0,20))
+val movie1 = mutableListOf<Movie>(Movie("M101","Leo", "Tamil",350,34))
+val movie2 = mutableListOf<Movie>(Movie("M101","ABC", "English",150, 12))
+val movie3 = mutableListOf<Movie>(Movie("M101","Tim", "Chines",200, 10))
+
+fun ticketBooking(){
+    print("Enter Movie ID : ")
+    val movieID = readln()
+    print("Enter Number Of Tickets : ")
+    val ticketCount = readln().toInt()
+
+    when(movieID){
+        "M101" ->{
+            print("========== Booking Successful ==========")
+            println()
+
+
+        }
+        "M102" ->{
+            print("========== Booking Successful ==========")
+            println()
+
+        }
+        "M103" ->{
+            print("========== Booking Successful ==========")
+            println()
+
+        }
+        else -> println("Invalid Movie ID")
+    }
+
+    return
+}
 
 fun getUserInput(){
     while(true){
@@ -32,23 +57,70 @@ fun getUserInput(){
 
         when(choice){
             1-> {
-                addStudent()
+                println(movie1)
+                println(movie2)
+                println(movie3)
             }
             2->{
-                println("Students List")
-                println(student)
+
             }
             3->{
-                removeStudent()
+
             }
-            4->{
-                searchStudent()
+            4-> {
+
             }
-            5-> break
-        }
+            5 -> {
+                    println("Happy Watching!......")
+                    break
+                }
+
+                else -> {
+                    println("Invalid Input")
+                }
     }
 }
 
 fun main(){
-
+    getUserInput()
 }
+
+
+
+fun cancelTicket() {
+    print("Enter Movie ID : ")
+    val movieID = readln()
+    print("Enter Number Of Tickets : ")
+    val ticketCount = readln().toInt()
+
+    when (movieID) {
+        "M101" -> {
+            print("========== Tickets Cancelled Successfully ==========")
+            println()
+
+        }
+
+        "M102" -> {
+            print("========== Tickets Cancelled Successfully ==========")
+            println()
+
+        }
+
+        "M103" -> {
+            print("========== Tickets Cancelled Successfully ==========")
+            println()
+
+        }
+
+        else -> println("Invalid Movie ID")
+    }
+}
+}
+
+
+
+
+
+
+
+
