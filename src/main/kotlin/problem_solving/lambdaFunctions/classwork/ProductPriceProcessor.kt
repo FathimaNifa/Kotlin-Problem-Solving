@@ -15,18 +15,19 @@ fun main() {
         Product("Webcam", 900.0)
     )
 
+    val expensiveProducts = products.filter { it.price>=1000 }
+    val applyDiscount = products.map { Product(it.name ,it.price - (it.price*10/100) )}
+    val below1000 = applyDiscount.filter { it.price<1000 }
+
     products.forEach { println("${it.name} : ₹${it.price}") }
     println()
-     println("Products costing ₹1000 or more:")
-     val expensiveProducts = products.filter { it.price>=1000 }
+    println("Products costing ₹1000 or more:")
     expensiveProducts.forEach { println("${it.name} : ₹${it.price}") }
     println()
     println("Products after 10% discount:")
-    val applyDiscount = products.map { Product(it.name ,it.price - (it.price*10/100) )}
     applyDiscount.forEach { println("${it.name} : ₹${it.price}") }
     println()
     println("Products below ₹1000 after discount:")
-    val below1000 = applyDiscount.filter { it.price<1000 }
     below1000.forEach { println("${it.name} : ₹${it.price}") }
 
 
